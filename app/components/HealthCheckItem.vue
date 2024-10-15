@@ -36,8 +36,8 @@ const formattedDate = computed(() => {
 </script>
 
 <template>
-  <li class="flex items-center justify-between space-y-2 sm:space-y-0">
-    <div class="flex items-start sm:items-center overflow-hidden">
+  <li class="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-2 sm:space-y-0 overflow-hidden">
+    <div class="flex items-start sm:items-center overflow-hidden flex-col sm:flex-row">
       <UIcon
         :name="checkInfo.icon"
         class="mr-2 size-6 shrink-0"
@@ -47,9 +47,9 @@ const formattedDate = computed(() => {
         v-if="!checkData.pending"
         :href="route"
         target="_blank"
-        class="flex flex-col sm:flex-row sm:items-center gap-1 sm:space-x-1 grow"
+        class="flex flex-col sm:flex-row sm:items-center gap-1 sm:space-x-1 overflow-hidden"
       >
-        <span class="shrink-0">{{ checkData.data?.description }}:</span>
+        <span class="shrink-0 line-clamp-1">{{ checkData.data?.description }}:</span>
         <span
           :class="[
             'font-mono text-sm px-1 rounded shrink truncate',
@@ -69,7 +69,7 @@ const formattedDate = computed(() => {
     </div>
     <div
       v-if="checkData.data"
-      class="flex flex-col sm:flex-row items-end sm:items-center space-y-1 sm:space-y-0 sm:space-x-2 shrink-0"
+      class="flex items-center space-x-2 shrink-0"
     >
       <ClientOnly>
         <span class="font-mono text-sm bg-gray-100 dark:bg-gray-800 rounded text-gray-700 dark:text-gray-400 px-1">

@@ -4493,8 +4493,8 @@ packages:
       xml2js:
         optional: true
 
-  node-abi@3.68.0:
-    resolution: {integrity: sha512-7vbj10trelExNjFSBm5kTvZXXa7pZyKWx9RCKIyqe6I9Ev3IzGpQoqBP3a+cOdxY+pWj6VkP28n/2wWysBHD/A==}
+  node-abi@3.69.0:
+    resolution: {integrity: sha512-H/k5/+HXto3xXTcqTIl3DAWaelvNVYSoZ2IJVDFJEoYyZYcoRhcRy+1WMMhsKAG+UU7wSCI3DRurJ0DxFMXvyg==}
     engines: {node: '>=10'}
 
   node-addon-api@6.1.0:
@@ -11416,7 +11416,7 @@ snapshots:
       - uWebSockets.js
       - webpack-sources
 
-  node-abi@3.68.0:
+  node-abi@3.69.0:
     dependencies:
       semver: 7.6.3
     optional: true
@@ -12160,7 +12160,7 @@ snapshots:
       minimist: 1.2.8
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.68.0
+      node-abi: 3.69.0
       pump: 3.0.2
       rc: 1.2.8
       simple-get: 4.0.1

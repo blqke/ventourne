@@ -8,13 +8,12 @@
 ![Ventourne screenshot](/public/images/screenshot.png)
 
 ## Introduction
-Ventourne is a simple [NuxtHub](https://hub.nuxt.com/) starter template that provides a simple healthcheck page for your needs. Inspired by [Levelsio's Podcast with Lex Friedman](https://www.youtube.com/watch?v=oFtjKbXKqbg) and based on [✅ Allgood](https://github.com/rameerez/allgood) by [@rameerez](https://x.com/rameerez/status/1827024731133882390).
+Ventourne is a simple [NuxtHub](https://hub.nuxt.com/) starter template that provides a simple healthcheck page for your needs. Inspired by [Levelsio's Podcast with Lex Friedman](https://www.youtube.com/watch?v=oFtjKbXKqbg) and based on [Allgood](https://github.com/rameerez/allgood) by [@rameerez](https://x.com/rameerez/status/1827024731133882390).
 
 ## How it works?
 **It's a simple healthcheck page**: the goal is to check the health of everything you need to keep an eye on.
 
-
-Just put your healthchecks in `server/routes/healthchecks/` and they will be automatically fetched and displayed on `{yoururl.com}/healthcheck`. You can give this url `{yoururl.com}/healthcheck?ssr` to any monitoring service to check if everything is ok.
+Just put your healthchecks in `server/routes/healthchecks/` and they will be automatically fetched and displayed on `{yoururl.com}/healthcheck`. You can give this URL `{yoururl.com}/healthcheck?ssr` to any monitoring service to check if everything is OK.
 - (Optional) You can authorize only some users to access the healthchecks.
 - (Optional) You can use token authentication to access this page.
 
@@ -24,29 +23,28 @@ It is also explained well [here](https://x.com/rameerez/status/18270247311338823
 This starter template is leveraging several NuxtHub features:
 - 🗄️ [NuxtHub Cache](https://hub.nuxt.com/docs/features/cache) (to cache healthchecks results)
 - 📦 [NuxtHub Database](https://hub.nuxt.com/docs/features/database) with [DrizzleORM](https://hub.nuxt.com/docs/recipes/drizzle) (to store users and some healthchecks examples)
-- 💻 [NuxtHub Browser](https://hub.nuxt.com/docs/features/browser): You can easily use a puppeeter instance in your healthchecks 🤯
+- 💻 [NuxtHub Browser](https://hub.nuxt.com/docs/features/browser): You can easily use a Puppeteer instance in your healthchecks 🤯
 - 🎨 [NuxtUI](https://ui.nuxt.com/) 
 - 🔑 [Nuxt Auth Utils](https://github.com/atinux/nuxt-auth-utils)
 
-
-### It it made to work like this:
-1. Your write simple checks you often need to make sure everything is working fine with your apps, businesses, etc.
+### It is made to work like this:
+1. You write simple checks you often need to make sure everything is working fine with your apps, businesses, etc.
   Some examples:
-    - Check if you earned at least $1 in the last 12 hours on your stripe account. If not, you probably have some issues.
-    - Check you sent at least 1 mail to customer in the last 24 hours, if not you probably have some issues.
+    - Check if you earned at least $1 in the last 12 hours on your Stripe account. If not, you probably have some issues.
+    - Check you sent at least 1 mail to customers in the last 24 hours; if not, you probably have some issues.
     - Check your database is still working
-    - Check your disk space usage is below 90% (if you are using a VPS instead of a cloudflare worker)
+    - Check your disk space usage is below 90% (if you are using a VPS instead of a Cloudflare worker)
     - Check if your third-party API integrations are responding within acceptable time limits
     - Check if SSL certificates are up to date and not expiring soon
     - Verify if API rate limits are not being exceeded
-    - Verify that important scheduled tasks ran successfully (e.g. daily reports, backups)
-    - Monitor for broken links on your website (Maybe with [NuxtSEO Link Checker](https://nuxtseo.com/link-checker/guides/live-inspections) ?)
+    - Verify that important scheduled tasks ran successfully (e.g., daily reports, backups)
+    - Monitor for broken links on your website (Maybe with [NuxtSEO Link Checker](https://nuxtseo.com/link-checker/guides/live-inspections)?)
     - Check if search functionality is returning relevant results
     - Verify that backups are being created and stored correctly
-    - Live integrations tests with [Puppeteer](https://pptr.dev/)
+    - Live integration tests with [Puppeteer](https://pptr.dev/)
     - etc.
-2. When you go on the page, it runs all the checks and display the results. Some healthchecks are cached via [Nitro's cache storage](https://nitro.unjs.io/guide/cache#customize-cache-storage), thanks to  and [NuxtHub cache](https://hub.nuxt.com/docs/features/cache) feature. So it is fully working with [Cloudflare Workers KV](https://developers.cloudflare.com/kv)
-3. This `/healthcheck?ssr` endpoint can be utilized for monitoring your application's health through services like UptimeRobot or Pingdom. These monitoring tools will periodically access your this healthcheck page, typically every few minutes, triggering the execution of all your defined health checks each time the page is fetched. If you need authentication, you can give `/healthcheck?ssr&?ventourne-token=token` to the monitoring service.
+2. When you go on the page, it runs all the checks and displays the results. Some healthchecks are cached via [Nitro's cache storage](https://nitro.unjs.io/guide/cache#customize-cache-storage), thanks to the [NuxtHub cache](https://hub.nuxt.com/docs/features/cache) feature. So it is fully working with [Cloudflare Workers KV](https://developers.cloudflare.com/kv)
+3. This `/healthcheck?ssr` endpoint can be utilized for monitoring your application's health through services like UptimeRobot or Pingdom. These monitoring tools will periodically access your healthcheck page, typically every few minutes, triggering the execution of all your defined health checks each time the page is fetched. If you need authentication, you can give `/healthcheck?ssr&ventourne-token=token` to the monitoring service.
 
 ## Setup
 
@@ -88,13 +86,12 @@ If you don't want to use any authentication, you can set the following environme
 ```bash
 NUXT_ENABLE_OAUTH=false
 ```
-
 No need to set any other variables.
 
-### Github auth
-You can login with GitHub, and authorize only some users to access the healthchecks.
+### GitHub auth
+You can log in with GitHub and authorize only specific users to access the healthchecks.
 
-For this you need to set the following environment variables:
+For this, you need to set the following environment variables:
 ```bash
 NUXT_OAUTH_GITHUB_CLIENT_ID=
 NUXT_OAUTH_GITHUB_CLIENT_SECRET=
@@ -105,12 +102,10 @@ NUXT_VENTOURNE_GITHUB_USERNAMES=username1,username2,etc # (if empty, every githu
 ### Token auth
 Or you can use the token authentication system, with a token in query params or in headers.
 
-For this you need to set the following environment variables:
+For this, you need to set the following environment variable:
 ```bash
 NUXT_VENTOURNE_TOKEN=use-this-token-in-request-query-params-or-headers-to-bypass-authentication
 ```
-
-
 
 ### Improvements
 
@@ -156,9 +151,9 @@ export default defineHealthcheckEventHandler(
 )
 ```
 
-### 3. Headless browser interaction Check
+### 3. Headless Browser Interaction Check
 
-You can use puppeteer to do more complex checks in a few lines of code.
+You can use Puppeteer to perform more complex checks in just a few lines of code.
 ```typescript
 import { defineHealthcheckEventHandler } from '~~/server/utils/healthcheck'
 
@@ -175,12 +170,12 @@ export default defineHealthcheckEventHandler(
   },
 )
 ```
-The page instance is automatically closed after response is sent.
+The page instance is automatically closed after the response is sent.
 
 
 ### 4. Intentional Failure Check
 
-To fail an healthcheck, you can throw an error or simply return false.
+To fail, you can throw an error or simply return false.
 ```typescript
 import { defineHealthcheckEventHandler } from '~~/server/utils/healthcheck'
 export default defineHealthcheckEventHandler(

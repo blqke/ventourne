@@ -28,12 +28,6 @@ export default defineNuxtConfig({
         corsHandler: false,
       },
     },
-    '/**': {
-      prerender: true,
-      security: {
-        rateLimiter: false,
-      },
-    },
   },
   runtimeConfig: {
     app: {

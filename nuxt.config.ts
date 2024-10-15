@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     'nuxt-security',
     '@vueuse/nuxt',
     '@nuxt/content',
-    '@nuxt/image',
   ],
   routeRules: {
     '/': {
